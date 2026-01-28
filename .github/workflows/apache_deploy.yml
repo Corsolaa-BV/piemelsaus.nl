@@ -20,6 +20,7 @@ jobs:
           cp -r . /var/www/piemelsaus.nl/
           rm -rf /var/www/piemelsaus.nl/.git
           rm -rf /var/www/piemelsaus.nl/.github
+          rm -rf /var/www/piemelsaus.nl/.gitignore
 
       - name: Create version.json
         run: |
