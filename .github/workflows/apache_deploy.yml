@@ -1,0 +1,37 @@
+name: Deploy to Apache
+on:
+  push:
+    tags:
+      - 'v*' # Triggers on tags like v1.0.0
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Clean and Move Files
+        run: |
+          # 1. Clear the old folder content
+          rm -rf /var/www/piemelsaus.nl/*
+          
+          # 2. Copy new files (excluding .git) to Apache folder
+          cp -r . /var/www/piemelsaus.nl/
+          rm -rf /var/www/piemelsaus.nl/.git
+
+      - name: Create version.json
+        run: |
+          cat <<EOF > /var/www/piemelsaus.nl/version.json
+          {
+            "version": "${{ github.ref_name }}",
+            "commit": "${{ github.sha }}",
+            "date": "$(date '+%Y-%m-%d %H:%M:%S')",
+            "environment": "production"
+          }
+          EOF
+
+      - name: Cleanup Runner Space
+        run: |
+          # Remove the downloaded code from the runner's work folder
+          rm -rf ..?* .[!.]* *
