@@ -1,12 +1,14 @@
 # piemelsaus.nl
 
 ## 🌐 Live Demo
-You can view the live website here: 
+
+You can view the live website here:
 **[https://piemelsaus.nl](https://piemelsaus.nl)**
 
 ---
 
 ## 📝 Description
+
 This is a website that I created when I bought the domainname.<br>
 It was during a IT class learning on how you can register your own domainname.<br>
 It's a very good word in Dutch...
@@ -14,7 +16,9 @@ It's a very good word in Dutch...
 ---
 
 ## 📄 `version.json`
+
 First, ensure this file is in your project root:
+
 ```json
 {
   "version": "1.2.3",
@@ -23,8 +27,3 @@ First, ensure this file is in your project root:
   "enviroment": "production"
 }
 ```
-
----
-
-## 👤 Author
-* **[Corsolaa]** - [GitHub Profile](https://github.com/Corsolaa])
