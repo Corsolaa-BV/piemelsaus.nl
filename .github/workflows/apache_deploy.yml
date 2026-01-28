@@ -24,10 +24,12 @@ jobs:
 
       - name: Create version.json
         run: |
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+
           cat <<EOF > /var/www/piemelsaus.nl/version.json
           {
             "version": "${{ github.ref_name }}",
-            "commit": "${{ github.sha }}",
+            "commit": "$SHORT_SHA",
             "date": "$(date '+%Y-%m-%d %H:%M:%S')",
             "environment": "production"
           }
