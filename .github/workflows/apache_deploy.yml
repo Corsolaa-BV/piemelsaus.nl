@@ -19,6 +19,7 @@ jobs:
           # 2. Copy new files (excluding .git) to Apache folder
           cp -r . /var/www/piemelsaus.nl/
           rm -rf /var/www/piemelsaus.nl/.git
+          rm -rf /var/www/piemelsaus.nl/.github
 
       - name: Create version.json
         run: |
