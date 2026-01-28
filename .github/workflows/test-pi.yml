@@ -1,0 +1,14 @@
+name: Pi Connection Test
+on:
+  push:
+    tags:
+      - 'test-*' # Triggers only on tags like test-1, test-v1, etc.
+
+jobs:
+  verify-pi:
+    runs-on: self-hosted
+    steps:
+      - name: Create a timestamp file
+        run: |
+          echo "Tag ${{ github.ref_name }} reached the Pi at $(date)" >> ~/pi_test_log.txt
+          echo "Automation successful!"
